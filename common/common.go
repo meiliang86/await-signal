@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go.temporal.io/sdk/client"
 	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 	"log"
 	"os"
 )
@@ -11,7 +12,10 @@ import (
 const TaskQueue = "replay-2025"
 
 func GetTemporalClient() client.Client {
-	logger, err := zap.NewDevelopment()
+	config := zap.NewDevelopmentConfig()
+	config.Level = zap.NewAtomicLevelAt(zapcore.InfoLevel)
+
+	logger, err := config.Build()
 	if err != nil {
 		panic(fmt.Errorf("could not construct bootstrap logger: %v", err))
 	}
@@ -35,7 +39,10 @@ func getTemporalClient(logger *zap.Logger, hostPort string) (client.Client, erro
 }
 
 func GetEitherTemporalClient() client.Client {
-	logger, err := zap.NewDevelopment()
+	config := zap.NewDevelopmentConfig()
+	config.Level = zap.NewAtomicLevelAt(zapcore.InfoLevel)
+
+	logger, err := config.Build()
 	if err != nil {
 		panic(fmt.Errorf("could not construct bootstrap logger: %v", err))
 	}
