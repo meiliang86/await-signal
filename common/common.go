@@ -58,10 +58,10 @@ func GetEitherTemporalClient() client.Client {
 func getEnvOrDefaultString(logger *zap.Logger, envVarName string, defaultValue string) string {
 	value := os.Getenv(envVarName)
 	if value == "" {
-		logger.Info(fmt.Sprintf("'%s' env variable not set, defaulting to '%s'", envVarName, defaultValue))
+		logger.Debug(fmt.Sprintf("'%s' env variable not set, defaulting to '%s'", envVarName, defaultValue))
 		value = defaultValue
 	} else {
-		logger.Info(fmt.Sprintf("'%s' env variable read as '%s'", envVarName, value))
+		logger.Debug(fmt.Sprintf("'%s' env variable read as '%s'", envVarName, value))
 	}
 	return value
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-	await_signal "await-signal"
+	"await-signal"
 	"await-signal/common"
 	"context"
 	"fmt"

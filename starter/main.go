@@ -31,7 +31,7 @@ func main() {
 
 	for err != nil {
 		time.Sleep(2 * time.Second)
-		log.Println("Retry waiting for workflow completion")
+		//log.Println("Retry waiting for workflow completion")
 		c.Close()
 		c = common.GetEitherTemporalClient()
 		err = c.GetWorkflow(context.Background(), we.GetID(), we.GetRunID()).Get(context.Background(), &result)

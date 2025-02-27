@@ -1,15 +1,12 @@
 package main
 
 import (
-	await_signal "await-signal"
+	"await-signal"
 	"await-signal/common"
 	"go.temporal.io/sdk/worker"
 	"go.temporal.io/sdk/workflow"
 	"log"
 )
-
-//TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
-// the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
 
 func main() {
 	c := common.GetTemporalClient()
